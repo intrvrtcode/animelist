@@ -1,6 +1,6 @@
 import HeaderAnimeList from "@/components/animelist/Header";
 import AnimeList from "@/components/animelist";
-import { getAnimeData } from "@/app/libs/api-libs";
+import { getAnimeData } from "@/libs/api-libs";
 
 const PageSearch = async ({ params }) => {
   const {keyword} = params;
