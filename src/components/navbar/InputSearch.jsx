@@ -19,7 +19,7 @@ const InputSearch = () => {
 
   return (
     <div className="relative">
-      <input className="p-2 rounded w-full" type="text" placeholder="Cari anime..." ref={searchRef} onKeyUp={(e) => {
+      <input className="p-2 rounded w-full md:min-w-[300px]" type="text" placeholder="Cari anime..." ref={searchRef} onKeyUp={(e) => {
         if(e.key === 'Enter') {
           HandleSearch(e)
         }
