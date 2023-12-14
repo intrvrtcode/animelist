@@ -3,6 +3,8 @@ import VideoPlayer from "@/components/utilities/VideoPlayer";
 import CollectionButton from "@/components/animelist/CollectionButton";
 import { getSessionUser } from "@/libs/auth-libs";
 import prisma from "@/libs/prisma";
+import CommentBox from "@/components/animelist/CommentBox";
+import CommentField from "@/components/animelist/CommentField";
 
 const Page = async ({ params: { id } }) => {
   const { data: animeById } = await getAnimeData(`/anime/${id}`);
@@ -46,11 +48,19 @@ const Page = async ({ params: { id } }) => {
         </div>
       </div>
 
-      <div className="pt-6 px-4 flex sm:flex-nowrap flex-wrap gap-4 text-color-primary">
+      <div className="pt-6 px-4 flex sm:flex-nowrap flex-wrap gap-6 text-color-primary">
         <img className="w-full min-w-[200px] rounded object-cover" src={animeById.images.webp.image_url} alt={animeById.images.jpg.image_url} />
         <div>
           <p className="text-lg text-justify">{animeById.synopsis}</p>
         </div>
+      </div>
+
+      <div className="px-4 my-4">
+        <CommentBox anime_mal_id={id} />
+
+        {
+          user && <CommentField anime_mal_id={id} user_email={user?.email} username={user?.name} anime_title={animeById.title} />
+        }
       </div>
 
       <div>

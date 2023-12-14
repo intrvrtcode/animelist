@@ -11,10 +11,10 @@ const Page = async () => {
   })
 
   return (
-    <section className="p-4">
+    <section className="px-4 py-7">
       <Header title="My Collections" />
 
-      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
         {
           collections.map((item, index) => (
             <Link key={index} href={`/anime/${item.anime_mal_id}`} className="relative border-2 border-color-accent">
